@@ -95,9 +95,9 @@ function base_select_options() {
 	html_content_string += ('<' + 'option value="2" selected' + '>');
 	html_content_string += ('base-2 (binary)');
 	html_content_string += ('<' + '/' + 'option' + '>');
-	for (i = 3; i < 16; i++) {
-		html_content_string += ('<' + 'option value="' + i + '" selected' + '>');
-		html_content_string += ('base-' + i + '(' + base_names[i] + ')');
+	for (i = 3; i < 17; i++) {
+		html_content_string += ('<' + 'option value="' + i + '"' + '>');
+		html_content_string += ('base-' + i + ' (' + base_names[i - 1] + ')');
 		html_content_string += ('<' + '/' + 'option' + '>');
 	}
 	return html_content_string;
@@ -109,18 +109,23 @@ function input_base_select_menu() {
 	input_base_select_menu_html_string += ('<' + 'select id="input_base_menu"' + '>');
 	input_base_select_menu_html_string += input_base_options;
 	input_base_select_menu_html_string += ('<' + '/' + 'select' + '>');
-	return input_base_select_menu_string;
+	return input_base_select_menu_html_string;
 }
 
-function output_base_select_menu() {
-	let output_base_select_menu_html_string = "";
-	let output_base_options = base_select_options();
-	output_base_select_menu_html_string += ('<' + 'select id="output_base_menu"' + '>');
-	output_base_select_menu_html_string += input_base_options;
-	output_base_select_menu_html_string += ('<' + '/' + 'select' + '>');
-	return output_base_select_menu_string;
+function populate_select_input_base_step_div() {
+	let select_input_base_step_div = document.getElementById("select_input_base_step");
+	let select_input_base_step_div_html_string = "";
+	let input_base_menu = input_base_select_menu();
+	let p0 = ('<' + 'p' + '>'), p1 = ('<' + '/' + 'p' + '>');
+	let next_button = ('<' + 'input type="button" value="NEXT" onclick="from_step_0_to_step_1()" ' + '>');
+	select_input_base_step_div_html_string += (p0 + "STEP_0: INPUT_BASE" + p1);
+	select_input_base_step_div_html_string += (p0 + "Select an input base from the menu: ");
+	select_input_base_step_div_html_string += (input_base_menu + p1);
+	select_input_base_step_div_html_string += (p0 + next_button + p1);
+	select_input_base_step_div.innerHTML = select_input_base_step_div_html_string;
 }
 
 function initialize_application() {
 	// test();
+	populate_select_input_base_step_div();
 }
