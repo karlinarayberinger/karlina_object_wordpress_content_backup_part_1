@@ -103,6 +103,24 @@ function base_select_options() {
 	return html_content_string;
 }
 
+function input_base_select_menu() {
+	let input_base_select_menu_html_string = "";
+	let input_base_options = base_select_options();
+	input_base_select_menu_html_string += ('<' + 'select id="input_base_menu"' + '>');
+	input_base_select_menu_html_string += input_base_options;
+	input_base_select_menu_html_string += ('<' + '/' + 'select' + '>');
+	return input_base_select_menu_string;
+}
+
+function output_base_select_menu() {
+	let output_base_select_menu_html_string = "";
+	let output_base_options = base_select_options();
+	output_base_select_menu_html_string += ('<' + 'select id="output_base_menu"' + '>');
+	output_base_select_menu_html_string += input_base_options;
+	output_base_select_menu_html_string += ('<' + '/' + 'select' + '>');
+	return output_base_select_menu_string;
+}
+
 function initialize_application() {
 	// test();
 }
