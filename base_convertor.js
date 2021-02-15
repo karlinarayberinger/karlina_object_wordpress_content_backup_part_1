@@ -2,7 +2,7 @@
  * file: base_convertor.js
  * type: JavaScript
  * author: karbytes
- * date: 13_FEBRUARY_2021
+ * date: 14_FEBRUARY_2021
  * license: PUBLIC_DOMAIN
  */
 
@@ -65,4 +65,8 @@ function test() {
 	let decimal_output = eight_digit_hexidecimal_sequence_to_decimal_integer(hexidecimal_input);
 	console.log('hexidecimal_input := "' +  hexidecimal_input + '".');
 	console.log('decimal_output := ' + decimal_output + '.');
+}
+
+function initialize_application() {
+	test();
 }
