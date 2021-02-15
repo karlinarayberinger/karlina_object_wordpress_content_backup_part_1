@@ -6,18 +6,34 @@
  * license: PUBLIC_DOMAIN
  */
 
+/**
+ * Return the JavaScrit Boolean value true if a given input represents exactly one JavaScript varable instance.
+ * Otherwise, return the JavaScript Boolean value false.
+ */
 function is_exactly_one_argument(input) {
 	return (arguments.length === 1) ? true : false;
 }
 
+/**
+ * Return the JavaScript Boolean value true if a given input represents exactly one JavaScript String type 
+ * variable instance. Otherwise, return the JavaScript Boolean value false.
+ */
 function is_string_type_argument(input) {
 	return (is_exactly_one_argument(arguments[0]) && ((typeof arguments[0]) === "string")) ? true : false;
 }
 
+/**
+ * Return the JavaScript Boolean value true if a given input represents exactly one JavaScript String constisting 
+ * of exactly one character. Otherwise, return the JavaScript Boolean value false.
+ */
 function is_exactly_one_character(x) {
 	return (is_string_type_argument(arguments[0]) && (arguments[0].length === 1)) ? true : false;
 }
 
+/**
+ * Return the JavaScript Boolean value true if a given input represents exactly one JavaScript String which 
+ * represents exactly one lowercase hexidecimal digit. Otherwise, return the JavaScript Boolean value false.
+ */
 function is_hexidecimal_digit(x) {
 	let hexidecimal_digits = "0123456789abcdef", i = 0;
 	if (!is_exactly_one_character(x)) return false;
@@ -25,6 +41,10 @@ function is_hexidecimal_digit(x) {
 	return false;
 }
 
+/**
+ * Return the JavaScript Boolean value true if a given input represents exactly one JavaScript String consisting 
+ * of exactly eight lowercase hexidecimal digits. Otherwise, return the JavaScript Boolean value false.
+ */
 function is_eight_digit_hexidecimal_sequence(s) {
 	let i = 0;
 	if (!is_string_type_argument(s) || (s.length !== 8)) return false;
@@ -32,6 +52,10 @@ function is_eight_digit_hexidecimal_sequence(s) {
 	return true;
 }
 
+/**
+ * If s represents exactly one JavaScript String consisting of exactly eight lowercase hexidecimal digits, 
+ * then return its equivalent base-ten JavaScript Number value. Otherwise, return the JavaScript Number 0.
+ */
 function eight_digit_hexidecimal_sequence_to_decimal_integer(s) {
 	let hexidecimal_digits = "0123456789abcdef", i = 0, k = 0, decimal_integer = 0;
 	if (!is_eight_digit_hexidecimal_sequence(s)) return 0;
@@ -45,6 +69,9 @@ function eight_digit_hexidecimal_sequence_to_decimal_integer(s) {
 	return decimal_integer;
 }
 
+/**
+ * Generate a JavaScript String consisting of exactly eight random lowercase hexidecimal digits.
+ */
 function random_eight_digit_hexidecimal_sequence() {
 	let hexidecimal_digits = "0123456789abcdef";
 	let random_hexidecimal_digit_index = 0;
@@ -60,6 +87,10 @@ function random_eight_digit_hexidecimal_sequence() {
 	return output_sequence;
 }
 
+/**
+ * Debugging Test: Convert a JavaScript String consisting of eight random lowercase hexidecimal digits
+ * to its equivalent base-ten JavaScript Number value.
+ */
 function test() {
 	let hexidecimal_input = random_eight_digit_hexidecimal_sequence();
 	let decimal_output = eight_digit_hexidecimal_sequence_to_decimal_integer(hexidecimal_input);
@@ -67,6 +98,10 @@ function test() {
 	console.log('decimal_output := ' + decimal_output + '.');
 }
 
+/**
+ * Generate a JavaScript Array whose elements are the first sixteen natural number bases 
+ * (and such that each array element is a JavaScript String).
+ */
 function numeric_base_names() {
 	let array = [];
 	array.push("unary");
@@ -88,6 +123,10 @@ function numeric_base_names() {
 	return array;
 }
 
+/**
+ * Generate the HTML string for populating the SELECT menu with OPTIONs such that each OPTION represents a natural number base 
+ * starting with base-two (binary) and ending with base-sixteen (hexidecimal) and such that base-two is selected by default.
+ */
 function base_select_options() {
 	let base_names = numeric_base_names();
 	let html_content_string = "";
@@ -102,6 +141,7 @@ function base_select_options() {
 	}
 	return html_content_string;
 }
+
 
 function input_base_select_menu() {
 	let input_base_select_menu_html_string = "";
