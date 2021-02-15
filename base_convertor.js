@@ -60,7 +60,7 @@ function random_eight_digit_hexidecimal_sequence() {
 	return output_sequence;
 }
 
-function test_0() {
+function test() {
 	let hexidecimal_input = random_eight_digit_hexidecimal_sequence();
 	let decimal_output = eight_digit_hexidecimal_sequence_to_decimal_integer(hexidecimal_input);
 	console.log('hexidecimal_input := "' +  hexidecimal_input + '".');
@@ -68,25 +68,24 @@ function test_0() {
 }
 
 function numeric_base_names() {
-	return 
-	[
-	    "unary",
-	    "binary",
-		"ternary",
-		"quaternary",
-		"quinary",
-		"senary",
-		"septenary",
-		"octal",
-		"nonary",
-		"decimal",
-		"undecimal",
-		"duodecimal",
-		"tridecimal",
-		"tetradecimal",
-		"pentadecimal",
-		"hexidecimal"
-	];
+	let array = [];
+	array.push("unary");
+	array.push("binary");
+	array.push("ternary");
+	array.push("quaternary");
+	array.push("quinary");
+	array.push("senary");
+	array.push("septenary");
+	array.push("octal");
+	array.push("nonary");
+	array.push("decimal");
+	array.push("undecimal");
+	array.push("duodecimal");
+	array.push("tridecimal");
+	array.push("tetradecimal");
+	array.push("pentadecimal");
+	array.push("hexidecimal");
+	return array;
 }
 
 function base_select_options() {
@@ -104,11 +103,6 @@ function base_select_options() {
 	return html_content_string;
 }
 
-function test_1() {
-	console.log(base_select_options());
-}
-
 function initialize_application() {
-	// test_0();
-	test_1();
+	// test();
 }
