@@ -2,7 +2,7 @@
  * file: base_convertor.js
  * type: JavaScript
  * author: karbytes
- * date: 14_FEBRUARY_2021
+ * date: 15_FEBRUARY_2021
  * license: PUBLIC_DOMAIN
  */
 
@@ -112,6 +112,15 @@ function input_base_select_menu() {
 	return input_base_select_menu_html_string;
 }
 
+function output_base_select_menu() {
+	let output_base_select_menu_html_string = "";
+	let output_base_options = base_select_options();
+	output_base_select_menu_html_string += ('<' + 'select id="output_base_menu"' + '>');
+	output_base_select_menu_html_string += output_base_options;
+	output_base_select_menu_html_string += ('<' + '/' + 'select' + '>');
+	return output_base_select_menu_html_string;
+}
+
 function populate_select_input_base_step_div() {
 	let select_input_base_step_div = document.getElementById("select_input_base_step");
 	let select_input_base_step_div_html_string = "";
@@ -125,7 +134,22 @@ function populate_select_input_base_step_div() {
 	select_input_base_step_div.innerHTML = select_input_base_step_div_html_string;
 }
 
+function populate_select_output_base_step_div() {
+	let select_output_base_step_div = document.getElementById("select_output_base_step");
+	let select_output_base_step_div_html_string = "";
+	let output_base_menu = output_base_select_menu();
+	let p0 = ('<' + 'p' + '>'), p1 = ('<' + '/' + 'p' + '>');
+	let back_button = ('<' + 'input type="button" value="BACK" onclick="from_step_2_to_step_1()" ' + '>');
+	let next_button = ('<' + 'input type="button" value="CONVERT" onclick="from_step_2_to_step_3()" ' + '>');
+	select_output_base_step_div_html_string += (p0 + "STEP_2: OUTPUT_BASE" + p1);
+	select_output_base_step_div_html_string += (p0 + "Select an output base from the menu: ");
+	select_output_base_step_div_html_string += (input_base_menu + p1);
+	select_output_base_step_div_html_string += (p0 + next_button + p1);
+	select_output_base_step_div.innerHTML = select_output_base_step_div_html_string;
+}
+
 function initialize_application() {
 	// test();
 	populate_select_input_base_step_div();
+	populate_select_output_base_step_div();
 }
