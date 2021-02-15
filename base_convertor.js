@@ -60,13 +60,55 @@ function random_eight_digit_hexidecimal_sequence() {
 	return output_sequence;
 }
 
-function test() {
+function test_0() {
 	let hexidecimal_input = random_eight_digit_hexidecimal_sequence();
 	let decimal_output = eight_digit_hexidecimal_sequence_to_decimal_integer(hexidecimal_input);
 	console.log('hexidecimal_input := "' +  hexidecimal_input + '".');
 	console.log('decimal_output := ' + decimal_output + '.');
 }
 
+function numeric_base_names() {
+	return 
+	[
+	    "unary",
+	    "binary",
+		"ternary",
+		"quaternary",
+		"quinary",
+		"senary",
+		"septenary",
+		"octal",
+		"nonary",
+		"decimal",
+		"undecimal",
+		"duodecimal",
+		"tridecimal",
+		"tetradecimal",
+		"pentadecimal",
+		"hexidecimal"
+	];
+}
+
+function base_select_options() {
+	let base_names = numeric_base_names();
+	let html_content_string = "";
+	let i = 3;
+	html_content_string += ('<' + 'option value="2" selected' + '>');
+	html_content_string += ('base-2 (binary)');
+	html_content_string += ('<' + '/' + 'option' + '>');
+	for (i = 3; i < 16; i++) {
+		html_content_string += ('<' + 'option value="' + i + '" selected' + '>');
+		html_content_string += ('base-' + i + '(' + base_names[i] + ')');
+		html_content_string += ('<' + '/' + 'option' + '>');
+	}
+	return html_content_string;
+}
+
+function test_1() {
+	console.log(base_select_options());
+}
+
 function initialize_application() {
-	test();
+	// test_0();
+	test_1();
 }
