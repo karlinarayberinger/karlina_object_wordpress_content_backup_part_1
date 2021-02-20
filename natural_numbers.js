@@ -15,3 +15,11 @@ function get_random_integer_percentage_value() {
 	console.log("random_nonnegative_integer_less_than_one_hundred := " + random_nonnegative_integer_less_than_one_hundred + '.');
 	return random_nonnegative_integer_less_than_one_hundred;
 }
+
+function get_specific_integer_percentage_value(nonnegative_integer_value) {
+	const DEFAULT_NONNEGATIVE_INTEGER_VALUE = 10;
+	nonnegative_integer_value = (!is_nonnegative_integer_value(nonnegative_integer_value)) ? (DEFAULT_NONNEGATIVE_INTEGER_VALUE : nonnegative_integer_value);
+	console.log("DEFAULT_NONNEGATIVE_INTEGER_VALUE := " + DEFAULT_NONNEGATIVE_INTEGER_VALUE + '.');
+	console.log("nonnegative_integer_value := " + nonnegative_integer_value + '.');
+	return nonnegative_integer_value;
+}
