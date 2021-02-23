@@ -10,9 +10,16 @@ body {
  	background: #000000;
  	color: #ff9000;
  	font-family: monospace;
- 	font-size: 16px;
+ 	font-size: 18px;
  	padding: 10px;
- 	width: 800px;
+ 	width: 1200px;
+}
+
+div {
+	border-color: #ff00ff;
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
 }
 
 input, select {
@@ -37,7 +44,7 @@ input:hover, select:hover {
 	width: 50px;
 	height: 50px;
 	background: #000000;
-	color: #ff9000;
+	color: #00ffff;
  	font-family: monospace;
  	font-size: 16px;
  	border-color: #00ffff;
@@ -48,18 +55,18 @@ input:hover, select:hover {
 }
 
 .single_character_button:hover {
-	background: #ff9000;
+	background: #00ffff;
 	color: #000000;
 }
 
 #insignificant_digits_display {
-	color: #ffff00;
+	color: #ff9000;
 }
 
 #significant_digits_display {
 	color: #00ffff;
 }
 
-#results_display {
+.results_display {
 	color: #00ff00;
 }
